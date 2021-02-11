@@ -1,0 +1,47 @@
+[
+  {
+    "question": "Pergunta 1?",
+    "answer1": "resposta 1",
+    "answer1Total": "1",
+    "answer2": "resposta 2",
+    "answer2Total": "2",
+    "answer3": "resposta 3",
+    "answer3Total": "3"
+  },
+  {
+    "question": "Pergunta 2 ?",
+    "answer1": "resposta 1",
+    "answer1Total": "2",
+    "answer2": "resposta 2",
+    "answer2Total": "1",
+    "answer3": "resposta 3",
+    "answer3Total": "3"
+  },
+  {
+    "question": "Pergunta 3 ?",
+    "answer1": "resposta 1",
+    "answer1Total": "3",
+    "answer2": "resposta 2",
+    "answer2Total": "1",
+    "answer3": "resposta 3",
+    "answer3Total": "2"
+  },
+  {
+    "question": "Pergunt 4 ?",
+    "answer1": "resposta 1",
+    "answer1Total": "1",
+    "answer2": "resposta 2",
+    "answer2Total": "2",
+    "answer3": "resposta 3",
+    "answer3Total": "3"
+  },
+  {
+    "question": "Pergunt 5 ?",
+    "answer1": "resposta 1",
+    "answer1Total": "3",
+    "answer2": "resposta 2",
+    "answer2Total": "2",
+    "answer3": "resposta 3",
+    "answer3Total": "1"
+  }
+]
