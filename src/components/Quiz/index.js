@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 
 import QuizOptions from "./options";
 import QuizResult from "./result";
+import Button from "../Button";
 import data from "../../data/data.json";
 
 const Quiz = () => {
-  const [totalQuestions] = useState(data.questions.length);
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [totalQuestions] = useState(data.questions.length);
   const [score, setScore] = useState(null);
   const [selectedAnswersData, setSelectedAnswersData] = useState([]);
   const [totalScore, setTotalScore] = useState(0);
@@ -23,10 +24,6 @@ const Quiz = () => {
     const selectedOption = document.querySelector(
       'input[type="radio"]:checked'
     );
-    if (!selectedOption) {
-      alert("Please select your answer!");
-      return;
-    }
     setSelectedAnswersData([...selectedAnswersData, score]);
     setCurrentQuestion((prev) => prev + 1);
     selectedOption.checked = false;
@@ -71,7 +68,7 @@ const Quiz = () => {
               (alternative, index) => (
                 <li key={index}>
                   <QuizOptions
-                    id={`pergunta${index}`}
+                    id={`pergunta${index + 1}`}
                     alternatives={alternative.title}
                     weight={alternative.weight}
                     handleSelectOption={handleSelectOption}
@@ -81,11 +78,11 @@ const Quiz = () => {
             )}
           </ul>
           {currentQuestion + 1 > 1 && (
-            <button type="button" onClick={handleLoadPrevQuestion}>
+            <Button type="button" onClick={handleLoadPrevQuestion}>
               Anterior
-            </button>
+            </Button>
           )}
-          <button
+          <Button
             type="button"
             onClick={handleLoadNextQuestion}
             disabled={disabled}
@@ -93,7 +90,7 @@ const Quiz = () => {
             {currentQuestion === totalQuestions - 1
               ? "Ver Resultado"
               : "Próxima"}
-          </button>
+          </Button>
         </div>
       )}
 

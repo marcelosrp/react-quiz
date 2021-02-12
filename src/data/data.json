@@ -52,6 +52,40 @@
           "weight": 1
         }
       ]
+    },
+    {
+      "title": "Bla bla bla bla 1?",
+      "alternatives": [
+        {
+          "title": "resposta 1",
+          "weight": 1
+        },
+        {
+          "title": "resposta 2",
+          "weight": 3
+        },
+        {
+          "title": "resposta 3",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "title": "Bla bla bla bla 2?",
+      "alternatives": [
+        {
+          "title": "resposta 1",
+          "weight": 3
+        },
+        {
+          "title": "resposta 2",
+          "weight": 2
+        },
+        {
+          "title": "resposta 3",
+          "weight": 1
+        }
+      ]
     }
   ]
 }
