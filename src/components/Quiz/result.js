@@ -12,7 +12,7 @@ const QuizResult = ({ pontuacao, handleReloadQuiz }) => {
         </div>
       )}
 
-      {pontuacao >= 5 && pontuacao <= 10 && (
+      {pontuacao >= 6 && pontuacao <= 10 && (
         <div>
           <p>5 - 10 - Meh</p>
         </div>
@@ -21,12 +21,6 @@ const QuizResult = ({ pontuacao, handleReloadQuiz }) => {
       {pontuacao >= 11 && pontuacao <= 15 && (
         <div>
           <p>10 - 15 - Good Soul</p>
-        </div>
-      )}
-
-      {pontuacao >= 16 && pontuacao <= 20 && (
-        <div>
-          <p>15 - 21- You Need Help</p>
         </div>
       )}
 

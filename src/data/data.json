@@ -24,11 +24,11 @@
       "alternatives": [
         {
           "title": "manhã",
-          "weight": 2
+          "weight": 1
         },
         {
           "title": "tarde",
-          "weight": 1
+          "weight": 2
         },
         {
           "title": "noite",
@@ -41,7 +41,7 @@
       "alternatives": [
         {
           "title": "calçadão",
-          "weight": 3
+          "weight": 1
         },
         {
           "title": "areia da praia",
@@ -49,7 +49,7 @@
         },
         {
           "title": "não tenho preferência",
-          "weight": 1
+          "weight": 3
         }
       ]
     },
@@ -62,11 +62,11 @@
         },
         {
           "title": "resposta 2",
-          "weight": 3
+          "weight": 2
         },
         {
           "title": "resposta 3",
-          "weight": 2
+          "weight": 3
         }
       ]
     },
@@ -75,7 +75,7 @@
       "alternatives": [
         {
           "title": "resposta 1",
-          "weight": 3
+          "weight": 1
         },
         {
           "title": "resposta 2",
@@ -83,7 +83,7 @@
         },
         {
           "title": "resposta 3",
-          "weight": 1
+          "weight": 3
         }
       ]
     }

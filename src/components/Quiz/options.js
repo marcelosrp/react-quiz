@@ -1,20 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const QuizOptions = ({ id, alternatives, weight, handleSelectOption }) => {
-  return (
-    <label htmlFor={id}>
-      <input
-        type="radio"
-        name="option"
-        id={id}
-        value={weight}
-        onChange={handleSelectOption}
-      />
-      {alternatives}
-    </label>
-  );
-};
+const QuizOptions = ({
+  id,
+  alternatives,
+  weight,
+  score,
+  handleSelectOption,
+}) => (
+  <label htmlFor={id}>
+    <input
+      type="radio"
+      name="option"
+      id={id}
+      value={weight}
+      onChange={handleSelectOption}
+      checked={score === weight}
+    />
+    {alternatives}
+  </label>
+);
 
 QuizOptions.propTypes = {
   id: PropTypes.string.isRequired,
