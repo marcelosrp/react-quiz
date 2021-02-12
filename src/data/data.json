@@ -1,0 +1,57 @@
+{
+  "title": "Asics Quiz",
+  "description": "Descubra o melhor tênis para você!",
+  "questions": [
+    {
+      "title": "Quantas vezes por semana você corre?",
+      "alternatives": [
+        {
+          "title": "1x por semana",
+          "weight": 1
+        },
+        {
+          "title": "3x por semana",
+          "weight": 2
+        },
+        {
+          "title": "Todos os dias",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "title": "Qual período do dia você prefere correr?",
+      "alternatives": [
+        {
+          "title": "manhã",
+          "weight": 2
+        },
+        {
+          "title": "tarde",
+          "weight": 1
+        },
+        {
+          "title": "noite",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "title": "Qual terreno você prefere praticar corrida?",
+      "alternatives": [
+        {
+          "title": "calçadão",
+          "weight": 3
+        },
+        {
+          "title": "areia da praia",
+          "weight": 2
+        },
+        {
+          "title": "não tenho preferência",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

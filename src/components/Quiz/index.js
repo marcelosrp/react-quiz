@@ -2,41 +2,35 @@ import React, { useState, useEffect } from "react";
 
 import QuizOptions from "./options";
 import QuizResult from "./result";
-import data from "../../data/questions.json";
+import data from "../../data/data.json";
 
 const Quiz = () => {
-  const [totalQuestions] = useState(data.length);
+  const [totalQuestions] = useState(data.questions.length);
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [question, setQuestion] = useState({});
   const [score, setScore] = useState(null);
   const [selectedAnswersData, setSelectedAnswersData] = useState([]);
   const [totalScore, setTotalScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
-
-  useEffect(() => {
-    setQuestion(data[currentQuestion]);
-    setTotalScore(selectedAnswersData.reduce((a, b) => a + b, 0));
-  }, [currentQuestion, selectedAnswersData]);
+  const [disabled, setDisabled] = useState(true);
 
   function handleSelectOption({ target }) {
-    const attr = target.getAttribute("data-total");
-    setScore(Number(attr));
+    const value = target.value;
+    setScore(Number(value));
+    setDisabled(false);
   }
 
   function handleLoadNextQuestion() {
     const selectedOption = document.querySelector(
       'input[type="radio"]:checked'
     );
-
     if (!selectedOption) {
       alert("Please select your answer!");
       return;
     }
-
     setSelectedAnswersData([...selectedAnswersData, score]);
     setCurrentQuestion((prev) => prev + 1);
     selectedOption.checked = false;
-
+    setDisabled(true);
     if (currentQuestion + 1 === totalQuestions) {
       setShowResult(true);
       setCurrentQuestion(0);
@@ -54,46 +48,48 @@ const Quiz = () => {
     setShowResult(false);
   }
 
+  useEffect(() => {
+    setTotalScore(selectedAnswersData.reduce((a, b) => a + b, 0));
+  }, [currentQuestion, selectedAnswersData]);
+
   return (
     <>
       {!showResult && (
         <div className="container-perguntas">
+          <h1>{data.title}</h1>
+          <h2>{data.description}</h2>
+          <br />
+          <br />
           <span>
             Pergunta {currentQuestion + 1} de {totalQuestions}
           </span>
-          <h1>{question.question}</h1>
+          <br />
+          <br />
+          <h3>{data.questions[currentQuestion].title}</h3>
           <ul>
-            <li>
-              <QuizOptions
-                question={question.answer1}
-                value={1}
-                dataTotal={question.answer1Total}
-                handleSelectOption={handleSelectOption}
-              />
-            </li>
-            <li>
-              <QuizOptions
-                question={question.answer2}
-                value={2}
-                dataTotal={question.answer2Total}
-                handleSelectOption={handleSelectOption}
-              />
-            </li>
-            <li>
-              <QuizOptions
-                question={question.answer3}
-                value={3}
-                dataTotal={question.answer3Total}
-                handleSelectOption={handleSelectOption}
-              />
-            </li>
+            {data.questions[currentQuestion].alternatives.map(
+              (alternative, index) => (
+                <li key={index}>
+                  <QuizOptions
+                    id={`pergunta${index}`}
+                    alternatives={alternative.title}
+                    weight={alternative.weight}
+                    handleSelectOption={handleSelectOption}
+                  />
+                </li>
+              )
+            )}
           </ul>
           {currentQuestion + 1 > 1 && (
             <button type="button" onClick={handleLoadPrevQuestion}>
               Anterior
             </button>
           )}
-          <button type="button" onClick={handleLoadNextQuestion}>
+          <button
+            type="button"
+            onClick={handleLoadNextQuestion}
+            disabled={disabled}
+          >
             {currentQuestion === totalQuestions - 1
               ? "Ver Resultado"
               : "Próxima"}
